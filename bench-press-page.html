@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitnessPower - Bench Press</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .container {
+            width: 85%;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li a {
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #ff4500;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .search-icon {
+            cursor: pointer;
+            font-size: 18px;
+        }
+        
+        .search-container {
+            display: none;
+            margin-top: 10px;
+        }
+        
+        .search-container.active {
+            display: block;
+        }
+        
+        .search-container input {
+            padding: 8px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .product-hero {
+            padding: 50px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .product-hero-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .product-hero-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .product-hero-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .product-hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .product-hero-text h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .product-hero-text p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
+        .product-hero-text .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .product-hero-text .btn:hover {
+            background-color: #555;
+        }
+        
+        .product-details {
+            padding: 50px 0;
+        }
+        
+        .product-features {
+            margin-bottom: 30px;
+        }
+        
+        .product-features h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .product-features h2:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #ff4500;
+        }
+        
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .feature-item {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .feature-item h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .feature-item p {
+            color: #666;
+        }
+        
+        .product-how-to {
+            margin-bottom: 30px;
+        }
+        
+        .product-how-to h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .product-how-to h2:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #ff4500;
+        }
+        
+        .steps-list {
+            counter-reset: step-counter;
+        }
+        
+        .step-item {
+            margin-bottom: 20px;
+            padding-left: 50px;
+            position: relative;
+        }
+        
+        .step-item:before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background-color: #333;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .step-item h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .step-item p {
+            color: #666;
+        }
+        
+        .product-variations {
+            margin-bottom: 30px;
+        }
+        
+        .product-variations h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .product-variations h2:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #ff4500;
+        }
+        
+        .variations-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .variation-item {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .variation-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .variation-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .variation-item-info {
+            padding: 15px;
+        }
+        
+        .variation-item-info h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .variation-item-info p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .variation-item-info .btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .variation-item-info .btn:hover {
+            background-color: #555;
+        }
+        
+        .product-benefits {
+            margin-bottom: 30px;
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .product-benefits h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .product-benefits h2:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #ff4500;
+        }
+        
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .benefit-item {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .benefit-item h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .benefit-item p {
+            color: #666;
+        }
+        
+        .product-tips {
+            margin-bottom: 30px;
+        }
+        
+        .product-tips h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .product-tips h2:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #ff4500;
+        }
+        
+        .tips-list {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .tip-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .tip-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .tip-item h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .tip-item p {
+            color: #666;
+        }
+        
+        .related-products {
+            padding: 50px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .related-products h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .related-products-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .related-product-item {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .related-product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .related-product-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .related-product-info {
+            padding: 15px;
+        }
+        
+        .related-product-info h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .related-product-info p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .related-product-info .btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .related-product-info .btn:hover {
+            background-color: #555;
+        }
+        
+        footer {
+            padding: 20px 0;
+            background-color: #f9f9f9;
+            border-top: 1px solid #eee;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-links a {
+            margin-right: 15px;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: #ff4500;
+        }
+        
+        .social-icons a {
+            margin-left: 15px;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            .product-hero-content {
+                flex-direction: column;
+            }
+            
+            .product-hero-image {
+                order: -1;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .social-icons {
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <nav>
+                    <ul>
+                        <li><a href="fitness-website.html">Ana Sayfa</a></li>
+                        <li><a href="fitness-equipment-list.html">Aletler</a></li>
+                        <li><a href="hakkinda-page.html">Hakkında</a></li>
+                    </ul>
+                </nav>
+                <a href="fitness-website.html" class="logo">FitnessPower</a>
+                <div class="search-icon" onclick="toggleSearch()">
+                    <i class="fa fa-search">🔍</i>
+                </div>
+            </div>
+            <div class="search-container" id="searchContainer">
+                <input type="text" id="searchInput" placeholder="Alet ara...">
+                <div id="searchResults"></div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Product Hero -->
+    <section class="product-hero">
+        <div class="container">
+            <div class="product-hero-content">
+                <div class="product-hero-text">
+                    <h1>Bench Press</h1>
+                    <p>Bench press, göğüs kas
