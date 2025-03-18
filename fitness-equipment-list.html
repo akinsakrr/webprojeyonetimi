@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitnessPower - Spor Aletleri</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .container {
+            width: 85%;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li a {
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #ff4500;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .search-icon {
+            cursor: pointer;
+            font-size: 18px;
+        }
+        
+        .search-container {
+            display: none;
+            margin-top: 10px;
+        }
+        
+        .search-container.active {
+            display: block;
+        }
+        
+        .search-container input {
+            padding: 8px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .page-title {
+            text-align: center;
+            padding: 30px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .page-title h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .page-title p {
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #666;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #555;
+        }
+        
+        footer {
+            padding: 20px 0;
+            background-color: #f9f9f9;
+            border-top: 1px solid #eee;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-links a {
+            margin-right: 15px;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: #ff4500;
+        }
+        
+        .social-icons a {
+            margin-left: 15px;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        /* Equipment Listing Styles */
+        .equipment-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 30px 0;
+        }
+        
+        .equipment-item {
+            border: 1px solid #eee;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            background-color: #fff;
+        }
+        
+        .equipment-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .equipment-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .equipment-item-info {
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .equipment-item-info h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .equipment-item-info p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            .equipment-list {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .social-icons {
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <nav>
+                    <ul>
+                        <li><a href="fitness-website.html">Ana Sayfa</a></li>
+                        <li><a href="fitness-equipment-list.html">Aletler</a></li>
+                        <li><a href="hakkinda-page.html">Hakkında</a></li>
+                    </ul>
+                </nav>
+                <a href="fitness-website.html" class="logo">FitnessPower</a>
+                <div class="search-icon" onclick="toggleSearch()">
+                    <i class="fa fa-search">🔍</i>
+                </div>
+            </div>
+            <div class="search-container" id="searchContainer">
+                <input type="text" id="searchInput" placeholder="Alet ara...">
+                <div id="searchResults"></div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Page Title -->
+    <section class="page-title">
+        <div class="container">
+            <h1>Spor Aletleri</h1>
+            <p>Profesyonel spor salonlarında ve evde kullanabileceğiniz en kaliteli spor ekipmanları. Fitness hedeflerinize ulaşmak için ihtiyacınız olan her şey burada!</p>
+        </div>
+    </section>
+    
+    <!-- Equipment List -->
+    <section class="container">
+        <div class="equipment-list">
+            <!-- Equipment 1 -->
+            <div class="equipment-item">
+                <img src="https://static.wixstatic.com/media/00b9a7_ead5d05dc1e74ae3be00f99bd407bf10~mv2.gif" alt="Bench Press">
+                <div class="equipment-item-info">
+                    <h3>Bench Press</h3>
+                    <p>Göğüs kaslarınızı geliştirmek için ideal ekipman</p>
+                    <a href="bench-press-page.html" class="btn">İncele</a>
+                </div>
+            </div>
+            
+            <!-- Equipment 2 -->
+            <div class="equipment-item">
+                <img src="https://static.wixstatic.com/media/00b9a7_782fcc0599064216a8dc977dafd13449~mv2.gif" alt="Leg Press">
+                <div class="equipment-item-info">
+                    <h3>Leg Press</h3>
+                    <p>Bacak kaslarınızı geliştirmek için kullanılan ekipman</p>
+                    <a href="#" class="btn">İncele</a>
+                </div>
+            </div>
+            
+            <!-- Equipment 3 -->
+            <div class="equipment-item">
+                <img src="https://static.wixstatic.com/media/00b9a7_3c45162b8d1546459c3f0edc685d1772~mv2.gif" alt="Lat Pulldown">
+                <div class="equipment-item-info">
+                    <h3>Lat Pulldown</h3>
+                    <p>Sırt kaslarınızı geliştirmek için ideal ekipman</p>
+                    <a href="#" class="btn">İncele</a>
+                </div>
+            </div>
+            
+            <!-- Equipment 4 -->
+            <div class="equipment-item">
+                <img src="https://static.wixstatic.com/media/00b9a7_0569c161590146aa853c09903fbe165c~mv2.gif" alt="Smith Machine">
+                <div class="equipment-item-info">
+                    <h3>Smith Machine</h3>
+                    <p>Güvenli ağırlık çalışmaları için çok yönlü ekipman</p>
+                    <a href="#" class="btn">İncele</a>
+                </div>
+            </div>
+            
+            <!-- Equipment 5 -->
+            <div class="equipment-item">
+                <img src="https://static.wixstatic.com/media/00b9a7_289b4de244b747a389ecd3eabcfc0aa8~mv2.gif" alt="Leg Extension">
+                <div class="equipment-item-info">
+                    <h3>Leg Extension</h3>
+                    <p>Quadriceps kaslarını izole etmek için kullanılan ekipman</p>
+                    <a href="#" class="btn">İncele</a>
+                </div>
+            </div>
+            
+            <!-- Equipment 6 -->
+            <div class="equipment-item">
+                <img src="https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Curl.gif" alt="Dumbbells">
+                <div class="equipment-item-info">
+                    <h3>Dumbbells (Dambıl)</h3>
+                    <p>Çok yönlü kullanım için elle tutulabilen ağırlıklar</p>
+                    <a href="#" class="btn">İncele</a>
+                </div>
+            </div>
+            
+            <!-- Equipment 7 -->
+            <div class="equipment-item">
+                <img src="https://www.inspireusafoundation.org/wp-content/uploads/2022/10/kettlebell-pistol-squat.gif" alt="Kettlebell">
+                <div class="equipment-item-info">
+                    <h3>Kettlebell</h3>
+                    <p>Fonksiyonel antrenman için ideal topa benzer ağırlık</p>
+                    <a href="#" class="btn">İncele</a>
+                </div>
+            </div>
+            
+            <!-- Equipment 8 -->
+            <div class="equipment-item">
+                <img src="https://www.inspireusafoundation.org/wp-content/uploads/2023/09/cable-row.gif" alt="Rowing Machine">
+                <div class="equipment-item-info">
+                    <h3>Rowing Machine</h3>
+                    <p>Tam vücut kardiyovasküler antrenmanı için kürek çekme simülatörü</p>
+                    <a href="#" class="btn">İncele</a>
+                </div>
+            </div>
+            
+            <!-- Equipment 9 -->
+            <div class="equipment-item">
+                <img src="https://static.wixstatic.com/media/00b9a7_9c3da84746964933a6f540cdb1b19827~mv2.gif" alt="Treadmill">
+                <div class="equipment-item-info">
+                    <h3>Treadmill (Koşu Bandı)</h3>
+                    <p>Kapalı alanda koşu ve yürüyüş için kardiyovasküler ekipman</p>
+                    <a href="#" class="btn">İncele</a>
+                </div>
+            </div>
+            
+            <!-- Equipment 10 -->
+            <div class="equipment-item">
+                <img src="https://www.inspireusafoundation.org/wp-content/uploads/2022/03/cable-face-pull.gif" alt="Cable Machine">
+                <div class="equipment-item-info">
+                    <h3>Cable Machine</h3>
+                    <p>Çok yönlü egzersizler için ayarlanabilir kablo sistemi</p>
+                    <a href="#" class="btn">İncele</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="fitness-website.html" class="logo">FitnessPower</a>
+                <div class="footer-links">
+                    <a href="fitness-website.html">Ana Sayfa</a>
+                    <a href="fitness-equipment-list.html">Aletler</a>
+                    <a href="fitness-equipment-list.html">Keşfet</a>
+                    <a href="hakkinda-page.html">İletişim</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/?locale=tr_TR"><i class="fa fa-facebook">📱</i></a>
+                    <a href="https://www.Instagram.com/?locale=tr_TR"><i class="fa fa-instagram">📷</i></a>
+                    <a href="https://www.x.com/?locale=tr_TR"><i class="fa fa-twitter">🐦</i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 FitnessPower. Tüm Hakları Saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle search functionality
+        function toggleSearch() {
+            const searchContainer = document.getElementById('searchContainer');
+            searchContainer.classList.toggle('active');
+            
+            if (searchContainer.classList.contains('active')) {
+                document.getElementById('searchInput').focus();
+            }
+        }
+        
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+        
+        searchInput.addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                const searchTerm = searchInput.value.toLowerCase();
+                
+                if (searchTerm === 'bench') {
+                    window.location.href = 'bench-press-page.html';
+                } else {
+                    alert('Aradığınız alet bulunamadı.');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
