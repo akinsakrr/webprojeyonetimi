@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitnessPower - Bench Press</title>
+    <link rel="stylesheet" href="bench-press-page.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="modern-fitness-website.html" class="logo">FitnessPower</a>
+                <nav>
+                    <ul>
+                        <li><a href="modern-fitness-website.html">Ana Sayfa</a></li>
+                        <li><a href="fitness-equipment-list.html">Aletler</a></li>
+                        <li><a href="product-page.html">Ürünler</a></li>
+                        <li><a href="hakkinda-page.html">Hakkında</a></li>
+                        <li><a href="kayit.html">Giriş Yap</a></li>
+                    </ul>
+                </nav>
+                <div class="search-icon" onclick="toggleSearch()">
+                    <i class="fa fa-search">🔍</i>
+                </div>
+            </div>
+            <div class="search-container" id="searchContainer">
+                <input type="text" id="searchInput" placeholder="Alet ara...">
+                <div id="searchResults"></div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Page Title -->
+    <section class="page-title">
+        <div class="container">
+            <h1>Bench Press</h1>
+            <p>Göğüs kaslarını etkili bir şekilde çalıştıran flat bench barbell press, bench ve barbell kullanılarak yapılan bir direnç egzersizidir. Bench denilen bir ağırlık sehpası ve yaklaşık 20 kg ağırlığa sahip barbell’ın kullanıldığı egzersiz, üst vücut bölgesinin kaslı ve hacimli bir görünüm kazanmasına yardımcı olur.</p>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Bench press</h2>
+                    <p>Bench sehpasına düz bir şekilde uzanın. Belinizde hafif bir boşluk olmasına dikkat edin. Ayaklarınızı sehpanın her iki yanına tabanlarınız yere tam basacak şekilde yerleştirin.</p>
+                    <p>Barbell’ı dirsek genişliğinde ellerinizle kavrayın ve nefes alarak göğsünüzün tam ortasına göğüs uçlarına doğru indirin. İndirme sırasında mümkün olduğunca kaslarınızı hissetmek için yavaş hareket edin.</p>
+                    <p>Barbell’ı göğüs bölgenize 1-2 santim kalıncaya kadar indirip ardından nefes vererek yukarı doğru dirsekleriniz tamamen düz oluncaya kadar kaldırın. Bu sırada omuzlarınızın aşağıda kalmasına gayret edin.</p>
+                    <p>Egzersiz boyunca tüm vücut kaslarınızı ve özellikle kalça kaslarınızı sıkmaya çalışın.</p>
+                    <p>Başlangıç için barbell’ın kendi ağırlığı ile 10 tekrarlı 4 set yapabilirsiniz. Kaslarınız güçlendikçe ağırlık ekleyebilirsiniz</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://i.pinimg.com/originals/bc/d2/05/bcd205cf9e64811981d715deebaa41da.gif" alt="FitnessPower Ekibi">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Yorum Bölümü -->
+<section class="comments-section">
+    <div class="container">
+        <h2>Yorumlar</h2>
+        
+        <div class="comments-container" id="commentsContainer">
+            <!-- Mevcut yorumlar burada gösterilecek -->
+        </div>
+        
+        <div class="comment-form">
+            <h3>Yorum Yapın</h3>
+            <form id="commentForm">
+                <div class="form-group">
+                    <label for="userName">Adınız*</label>
+                    <input type="text" id="userName" name="userName" required>
+                    <span class="error-message" id="nameError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="userComment">Yorumunuz*</label>
+                    <textarea id="userComment" name="userComment" rows="4" required></textarea>
+                    <span class="error-message" id="commentError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="userRating">Puanınız*</label>
+                    <div class="rating-container">
+                        <input type="radio" id="star5" name="userRating" value="5" required>
+                        <label for="star5">★</label>
+                        <input type="radio" id="star4" name="userRating" value="4">
+                        <label for="star4">★</label>
+                        <input type="radio" id="star3" name="userRating" value="3">
+                        <label for="star3">★</label>
+                        <input type="radio" id="star2" name="userRating" value="2">
+                        <label for="star2">★</label>
+                        <input type="radio" id="star1" name="userRating" value="1">
+                        <label for="star1">★</label>
+                    </div>
+                    <span class="error-message" id="ratingError"></span>
+                </div>
+                
+                <button type="submit" class="submit-btn">Yorum Gönder</button>
+            </form>
+        </div>
+    </div>
+</section>
+    <footer>
+            <!-- Contact Section -->
+        <div class="container">
+            <div class="footer-content">
+                <a href="modern-fitness-website.html" class="logo">FitnessPower</a>
+                <div class="footer-links">
+                    <a href="modern-fitness-website.html">Ana Sayfa</a>
+                    <a href="fitness-equipment-list.html">Aletler</a>
+                    <a href="fitness-equipment-list.html">Keşfet</a>
+                    <a href="hakkinda-page.html">İletişim</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/?locale=tr_TR"><i class="fa fa-facebook">📱</i></a>
+                    <a href="https://www.Instagram.com/?locale=tr_TR"><i class="fa fa-instagram">📷</i></a>
+                    <a href="https://www.x.com/?locale=tr_TR"><i class="fa fa-twitter">🐦</i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 FitnessPower. Tüm Hakları Saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="bench-press-page.js"> </script>
+</body>
+</html>
