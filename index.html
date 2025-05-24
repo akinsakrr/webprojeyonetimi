@@ -105,30 +105,7 @@
     <script src="modern-fitness-website.js"></script>
 
     <!-- Canlı Destek Butonu ve Pencere -->
-    <div class="live-support" id="liveSupport">
-        <button class="support-btn" onclick="toggleLiveSupport()">💬</button>
-        <div class="chat-window" id="chatWindow">
-            <div class="chat-header">
-                <p>Canlı Destek</p>
-                <button class="close-btn" onclick="toggleLiveSupport()">✖</button>
-            </div>
-            <div class="chat-body" id="chatBody">
-                <div class="message bot-message">
-                    Merhaba, size nasıl yardımcı olabilirim? Lütfen bir soruyu seçin:
-                </div>
-                <div class="quick-questions">
-                    <button onclick="quickReply('Alışverişte sorun yaşıyorum.')">Alışverişte sorun yaşıyorum.</button>
-                    <button onclick="quickReply('Spor aletleri hakkında bilgi almak istiyorum.')">Spor aletleri hakkında bilgi almak istiyorum.</button>
-                    <button onclick="quickReply('Ürünler hakkında garanti bilgisi nedir?')">Ürünler hakkında garanti bilgisi nedir?</button>
-                    <button onclick="quickReply('İletişim bilgilerinizi paylaşır mısınız?')">İletişim bilgilerinizi paylaşır mısınız?</button>
-                </div>
-            </div>
-            <div class="chat-footer">
-                <input type="text" id="userMessage" placeholder="Mesajınızı yazın..." onkeypress="if(event.key === 'Enter') sendMessage()">
-                <button onclick="sendMessage()">Gönder</button>
-            </div>
-        </div>
-    </div>
+    
     </body>
     
 </html>
