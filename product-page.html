@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitnessPower - Ürünler</title>
+    <link rel="stylesheet" href="product-page.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="modern-fitness-website.html" class="logo">FitnessPower</a>
+                <nav>
+                    <ul>
+                        <li><a href="modern-fitness-website.html">Ana Sayfa</a></li>
+                        <li><a href="fitness-equipment-list.html">Aletler</a></li>
+                        <li><a href="product-page.html">Ürünler</a></li>
+                        <li><a href="hakkinda-page.html">Hakkında</a></li>
+                        <li><a href="kayit.html">Giriş Yap</a></li>
+                    </ul>
+                </nav>
+                <div class="search-icon" onclick="toggleSearch()">
+                    <i class="fa fa-search">🔍</i>
+                </div>
+            </div>
+            <div class="search-container" id="searchContainer">
+                <input type="text" id="searchInput" placeholder="Ürün ara...">
+                <div id="searchResults"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>FİTNESS ÜRÜNLERİ</h1>
+            <p>Fitness yolculuğunuzda size eşlik edecek en kaliteli ürünler burada! En iyi spor ekipmanları, besin takviyeleri ve fitness aksesuarları ile hedeflerinize daha hızlı ulaşın.</p>
+        </div>
+    </section>
+    
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title">Fitness Ürünlerimiz</h2>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Shopping Cart -->
+    <div class="cart-bubble" id="cartBubble">
+        🛒
+        <div class="cart-count" id="cartCount">0</div>
+    </div>
+    
+    <div class="cart-panel" id="cartPanel">
+        <div class="cart-header">
+            <h3>Sepetim</h3>
+            <div class="close-cart" id="closeCart">✕</div>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be populated by JavaScript -->
+        </div>
+        <div class="cart-total" id="cartTotal">Toplam: 0 TL</div>
+        <button class="checkout-btn"><a href="odeme.html"> Ödemeye Geç </a></button>
+    </div>
+    
+    <div class="overlay" id="overlay"></div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="modern-fitness-website.html">FitnessPower</a>
+                    <p>Hayatınızı değiştirecek egzersiz ve fitness rehberiniz. Daha güçlü, daha sağlıklı bir yaşam için buradayız.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Hızlı Bağlantılar</h4>
+                    <a href="modern-fitness-website.html">Ana Sayfa</a>
+                    <a href="fitness-equipment-list.html">Aletler</a>
+                    <a href="product-page.html">Ürünler</a>
+                    <a href="hakkinda-page.html">Hakkında</a>
+                </div>
+                <div class="social-links">
+                    <h4>Bizi Takip Edin</h4>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/?locale=tr_TR"><i>📱</i></a>
+                        <a href="https://www.Instagram.com/?locale=tr_TR"><i>📷</i></a>
+                        <a href="https://www.x.com/?locale=tr_TR"><i>🐦</i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 FitnessPower. Tüm Hakları Saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="product-page.js"></script>
+</body>
+</html>
